@@ -3,7 +3,7 @@ A simple console application to import plenty of images into the Xamarin.iOS pro
 
 ## Introduction
 
-I am new to Xamarin.iOS and the first challenging thing to me is how to add plenty of images into the Xamarin.iOS project. I am working on a small project which can convert currencies rates and I need to show a lot of flags for currencies. When I want to add images into the Xamarin.iOS project, I found it is so boring and Visual Studio does not provide us with a convenient way to add them.
+I am developing a iOS application by Xamarin.iOS and the first challenging thing to me is how to add plenty of images into the Xamarin.iOS project. I am working on a small project which can convert currencies rates and I need to show a lot of flags for currencies. When I want to add images into the Xamarin.iOS project, I found it is so boring and Visual Studio does not provide us with a convenient way to add them.
 
 I do not want to add them one by one. Let us take a look at what happened when we add an image to the project. Then we can find some ways to automate it.
 
