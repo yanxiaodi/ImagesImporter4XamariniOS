@@ -75,7 +75,7 @@ Open this json file and the content looks like this:
     {
       "scale": "1x",
       "idiom": "universal",
-      "filename": "myfirstimage.png"
+      "filename": "flag_white.png"
     }
   ],
   "properties": {},
