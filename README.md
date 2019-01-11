@@ -11,7 +11,7 @@ Before we started, I recommend you to read this documentation: [Displaying an im
 
 ## Adding an image by the editor
 
-First, let us follow the official instruction to add a image. Right click the `Asset Catalogs` and select `Add Asset Catalog`:
+First, let us follow the official instruction to add an image. Right-click the `Asset Catalogs` and select `Add Asset Catalog`:
 
 ![1547159671123](assets/1547159671123.png)
 
@@ -19,7 +19,7 @@ Input `Tests` as the Asset Catalog name:
 
 ![1547163145107](assets/1547163145107.png)
 
-Double click `Tests` in `Asset Catalogs` folder then you will see the structure of the `Tests.xcassets`:
+Double click `Tests` in the `Asset Catalogs` folder then you will see the structure of the `Tests.xcassets`:
 
 ![1547163231985](assets/1547163231985.png)
 
@@ -37,7 +37,7 @@ For example, I select a small image file for 1x. I do not choose the others beca
 
 ![1547163724009](assets/1547163724009.png)
 
-Actually, the file name of this image is `flag_white.png`(depends on your choice). But the name of the image set in the `Tests.xcassets` is `Images`. You can rename the image set by select it and update the `Name` property in `Properties` windows:
+Actually, the file name of this image is `flag_white.png`(depends on your choice). But the name of the image set in `Tests.xcassets` is `Images`. You can rename the image set by select it and update the `Name` property in `Properties` windows:
 
 ![1547163643546](assets/1547163643546.png)
 
@@ -55,7 +55,7 @@ MyFirstImage.Image = UIImage.FromBundle ("MyFirstImage");
 
 Xamarin.iOS uses a different way from UWP and Android to organize the resources. Instead of using the file name, Xamarin.iOS uses `Asset Catalogs Images Sets` to specify a Json file to indicate the file names. That means your file might has a different name from it in the codes.
 
-Ok. Next let us find out what happened after adding the image. Right click the Xamarin.iOS project and select `Open folder in File explorer`. You can see there is a new folder named `Tests.xcassets`. Open if and you will find a folder named `myfirstimage.imageset`. Open this folder and you will find two files, one is the original image file, another is a `Content.json` file.
+Ok. Next, let us find out what happened after adding the image. Right-click the Xamarin.iOS project and select `Open folder in File explorer`. You can see there is a new folder named `Tests.xcassets`. Open it and you will find a folder named `myfirstimage.imageset`. Open this folder and you will find two files, one is the original image file, another is a `Content.json` file.
 
 ![1547164024103](assets/1547164024103.png)
 
@@ -86,9 +86,9 @@ Open this json file and the content looks like this:
 }
 ```
 
-That is it. But Xamarin.iOS must have done some other things to include it into the project. Now right click the Xamarin.iOS project and select `Unload Project`. Then right click the project and select `Edit ***.csproj`. Now you can edit it directly.
+That is it. But Xamarin.iOS must have done some other things to include it into the project. Now right click the Xamarin.iOS project and select `Unload Project`. Then right-click the project and select `Edit ***.csproj`. Now you can edit it directly.
 
-You will find there are some sections named `ImageAsset`, like this:
+You will find there are some sections called `ImageAsset`, like this:
 
 ```xml
     <ImageAsset Include="Tests.xcassets\MyFirstImage.imageset\Contents.json">
@@ -99,13 +99,13 @@ You will find there are some sections named `ImageAsset`, like this:
     </ImageAsset>
 ```
 
-Now we have known what Xamarin.iOS would do after adding an image. It just import the image into a specific folder and add a json file to specify the name of the image, then add the xml sections in the *.csproj file to include them.
+Now we have known what Xamarin.iOS would do after adding an image. It just imports the image into a specific folder and add a json file to specify the name of the image, then add the xml sections in the *.csproj file to include them.
 
 ## Making a tool to automate the process
 
 Imagine that we might have a lot of images that will be added into the project. Add them one by one and update the names manually? That must be a massive work! I have heard that one of the best characteristics  of a good developer is laziness. We must not do it like this. So I write a tool to simplify the work.
 
-First, imagine that we have some images in a folder. For the simplicity, we do not need images with different sizes. We are going to import them into the Xamarin.iOS project. What I should do now is get the files list and loop them, generate the `Content.json` file and copy them into the specific folders, then generate a xml segment of the *.csproj.
+First, imagine that we have some images in a folder. For simplicity, we do not need images of different sizes. We are going to import them into the Xamarin.iOS project. What I should do now is get the files list and loop them, generate the `Content.json` file and copy them into the specific folders, then generate a xml segment of the *.csproj.
 
 I created a simple console application to generate these files automatically. First, get the image folder, then get the images in this folder. Make a loop to process these images:
 
